@@ -1,0 +1,12 @@
+{
+  "name": "paybridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cross-chain invoicing and stablecoin payment infrastructure for businesses",
+  "scripts": {
+    "dev:api": "pnpm --filter @paybridge/api dev",
+    "build:api": "pnpm --filter @paybridge/api build",
+    "typecheck:api": "pnpm --filter @paybridge/api typecheck",
+    "test:api": "pnpm --filter @paybridge/api test"
+  }
+}
