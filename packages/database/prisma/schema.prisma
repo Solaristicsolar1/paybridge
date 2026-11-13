@@ -31,14 +31,17 @@ enum BusinessInvitationStatus {
   REVOKED
 }
 
+
 enum InvoiceStatus {
   DRAFT
   SENT
   PARTIALLY_PAID
   PAID
+  OVERPAID
   OVERDUE
   CANCELLED
 }
+
 
 enum PaymentStatus {
   PENDING
@@ -314,6 +317,7 @@ model Installment {
 // PAYMENTS
 // ==========================================
 
+
 model Payment {
   id            String  @id @default(uuid()) @db.Uuid
   invoiceId     String  @db.Uuid
@@ -327,7 +331,11 @@ model Payment {
   // Amount credited towards the invoice.
   invoiceAmount Decimal @db.Decimal(20, 8)
 
+  // Immutable customer refund destination snapshot.
+  sourceRefundAddress String? @db.VarChar(42)
+
   // Original asset supplied by the payer.
+  sourceAssetId      String?  @db.VarChar(300)
   sourceChain        String?  @db.VarChar(60)
   sourceTokenAddress String?
   sourceTokenSymbol  String?  @db.VarChar(30)
@@ -335,21 +343,33 @@ model Payment {
   sourceTxHash       String?
 
   // Settlement destination.
-  destinationChain       String   @default("near") @db.VarChar(60)
-  destinationTokenSymbol String   @default("USDC") @db.VarChar(30)
-  destinationAmount      Decimal? @db.Decimal(36, 18)
-  destinationTxHash      String?
+  destinationAssetId      String?  @db.VarChar(300)
+  destinationChain        String   @default("base") @db.VarChar(60)
+  destinationTokenSymbol  String   @default("USDC") @db.VarChar(30)
+  destinationAmount       Decimal? @db.Decimal(36, 18)
+  destinationTxHash       String?
 
+  // Immutable merchant payout destination snapshot.
+  payoutAddress String? @db.VarChar(42)
+
+  // NEAR Intents deposit instructions.
   depositAddress String?
+  depositMemo    String?
   expiresAt      DateTime?
-  confirmedAt    DateTime?
-  refundedAt     DateTime?
+
+  // Provider tracking and audit information.
+  providerStatus        String? @db.VarChar(80)
+  lastStatusCheckedAt DateTime?
+  providerCorrelationId String? @unique
+  providerResponse     Json?
+
+  confirmedAt DateTime?
+  refundedAt  DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Restrict)
-
   installment Installment? @relation(fields: [installmentId, invoiceId], references: [id, invoiceId], onDelete: Restrict)
 
   events PaymentEvent[]
@@ -359,6 +379,8 @@ model Payment {
   @@index([invoiceId, status])
   @@index([installmentId])
   @@index([providerReference])
+  @@index([providerStatus])
+  @@index([depositAddress])
 }
 
 // ==========================================

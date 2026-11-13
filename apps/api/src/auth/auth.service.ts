@@ -111,6 +111,14 @@ export class AuthService {
     }
 
     // ==========================================
+    // REFRESH COOKIE CONFIGURATION
+    // ==========================================
+
+    getRefreshCookieMaxAge(): number {
+        return this.refreshDays * 24 * 60 * 60 * 1000;
+    }
+
+    // ==========================================
     // TOKEN HELPERS
     // ==========================================
 

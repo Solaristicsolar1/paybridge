@@ -297,6 +297,7 @@ export class InvoicesService {
                     | 'SENT'
                     | 'PARTIALLY_PAID'
                     | 'PAID'
+                    | 'OVERPAID'
                     | 'OVERDUE'
                     | 'CANCELLED',
             }),
@@ -788,6 +789,7 @@ export class InvoicesService {
                         'SENT',
                         'PARTIALLY_PAID',
                         'PAID',
+                        'OVERPAID',
                         'OVERDUE',
                     ],
                 },

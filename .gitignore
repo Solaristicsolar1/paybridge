@@ -1,9 +1,32 @@
-node_modules
-.next
-dist
-coverage
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment variables and secrets
 .env
 .env.*
 !.env.example
+
+# Build outputs
+dist/
+**/dist/
+build/
+**/build/
+.next/
+**/.next/
+out/
+coverage/
+
+# Logs
 *.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Local development
 .DS_Store
+.vscode/
+.idea/
+
+# TypeScript build metadata
+*.tsbuildinfo

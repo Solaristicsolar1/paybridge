@@ -62,7 +62,7 @@ export class AuthController {
 
         response.cookie('pb_refresh', refreshToken, {
             ...this.cookieOptions(),
-            maxAge: 30 * 24 * 60 * 60 * 1000,
+            maxAge: this.authService.getRefreshCookieMaxAge(),
         });
     }
 

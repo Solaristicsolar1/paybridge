@@ -47,17 +47,25 @@ export type PaymentMinAggregateOutputType = {
   providerReference: string | null
   idempotencyKey: string | null
   invoiceAmount: runtime.Decimal | null
+  sourceRefundAddress: string | null
+  sourceAssetId: string | null
   sourceChain: string | null
   sourceTokenAddress: string | null
   sourceTokenSymbol: string | null
   sourceAmount: runtime.Decimal | null
   sourceTxHash: string | null
+  destinationAssetId: string | null
   destinationChain: string | null
   destinationTokenSymbol: string | null
   destinationAmount: runtime.Decimal | null
   destinationTxHash: string | null
+  payoutAddress: string | null
   depositAddress: string | null
+  depositMemo: string | null
   expiresAt: Date | null
+  providerStatus: string | null
+  lastStatusCheckedAt: Date | null
+  providerCorrelationId: string | null
   confirmedAt: Date | null
   refundedAt: Date | null
   createdAt: Date | null
@@ -73,17 +81,25 @@ export type PaymentMaxAggregateOutputType = {
   providerReference: string | null
   idempotencyKey: string | null
   invoiceAmount: runtime.Decimal | null
+  sourceRefundAddress: string | null
+  sourceAssetId: string | null
   sourceChain: string | null
   sourceTokenAddress: string | null
   sourceTokenSymbol: string | null
   sourceAmount: runtime.Decimal | null
   sourceTxHash: string | null
+  destinationAssetId: string | null
   destinationChain: string | null
   destinationTokenSymbol: string | null
   destinationAmount: runtime.Decimal | null
   destinationTxHash: string | null
+  payoutAddress: string | null
   depositAddress: string | null
+  depositMemo: string | null
   expiresAt: Date | null
+  providerStatus: string | null
+  lastStatusCheckedAt: Date | null
+  providerCorrelationId: string | null
   confirmedAt: Date | null
   refundedAt: Date | null
   createdAt: Date | null
@@ -99,17 +115,26 @@ export type PaymentCountAggregateOutputType = {
   providerReference: number
   idempotencyKey: number
   invoiceAmount: number
+  sourceRefundAddress: number
+  sourceAssetId: number
   sourceChain: number
   sourceTokenAddress: number
   sourceTokenSymbol: number
   sourceAmount: number
   sourceTxHash: number
+  destinationAssetId: number
   destinationChain: number
   destinationTokenSymbol: number
   destinationAmount: number
   destinationTxHash: number
+  payoutAddress: number
   depositAddress: number
+  depositMemo: number
   expiresAt: number
+  providerStatus: number
+  lastStatusCheckedAt: number
+  providerCorrelationId: number
+  providerResponse: number
   confirmedAt: number
   refundedAt: number
   createdAt: number
@@ -139,17 +164,25 @@ export type PaymentMinAggregateInputType = {
   providerReference?: true
   idempotencyKey?: true
   invoiceAmount?: true
+  sourceRefundAddress?: true
+  sourceAssetId?: true
   sourceChain?: true
   sourceTokenAddress?: true
   sourceTokenSymbol?: true
   sourceAmount?: true
   sourceTxHash?: true
+  destinationAssetId?: true
   destinationChain?: true
   destinationTokenSymbol?: true
   destinationAmount?: true
   destinationTxHash?: true
+  payoutAddress?: true
   depositAddress?: true
+  depositMemo?: true
   expiresAt?: true
+  providerStatus?: true
+  lastStatusCheckedAt?: true
+  providerCorrelationId?: true
   confirmedAt?: true
   refundedAt?: true
   createdAt?: true
@@ -165,17 +198,25 @@ export type PaymentMaxAggregateInputType = {
   providerReference?: true
   idempotencyKey?: true
   invoiceAmount?: true
+  sourceRefundAddress?: true
+  sourceAssetId?: true
   sourceChain?: true
   sourceTokenAddress?: true
   sourceTokenSymbol?: true
   sourceAmount?: true
   sourceTxHash?: true
+  destinationAssetId?: true
   destinationChain?: true
   destinationTokenSymbol?: true
   destinationAmount?: true
   destinationTxHash?: true
+  payoutAddress?: true
   depositAddress?: true
+  depositMemo?: true
   expiresAt?: true
+  providerStatus?: true
+  lastStatusCheckedAt?: true
+  providerCorrelationId?: true
   confirmedAt?: true
   refundedAt?: true
   createdAt?: true
@@ -191,17 +232,26 @@ export type PaymentCountAggregateInputType = {
   providerReference?: true
   idempotencyKey?: true
   invoiceAmount?: true
+  sourceRefundAddress?: true
+  sourceAssetId?: true
   sourceChain?: true
   sourceTokenAddress?: true
   sourceTokenSymbol?: true
   sourceAmount?: true
   sourceTxHash?: true
+  destinationAssetId?: true
   destinationChain?: true
   destinationTokenSymbol?: true
   destinationAmount?: true
   destinationTxHash?: true
+  payoutAddress?: true
   depositAddress?: true
+  depositMemo?: true
   expiresAt?: true
+  providerStatus?: true
+  lastStatusCheckedAt?: true
+  providerCorrelationId?: true
+  providerResponse?: true
   confirmedAt?: true
   refundedAt?: true
   createdAt?: true
@@ -304,17 +354,26 @@ export type PaymentGroupByOutputType = {
   providerReference: string | null
   idempotencyKey: string | null
   invoiceAmount: runtime.Decimal
+  sourceRefundAddress: string | null
+  sourceAssetId: string | null
   sourceChain: string | null
   sourceTokenAddress: string | null
   sourceTokenSymbol: string | null
   sourceAmount: runtime.Decimal | null
   sourceTxHash: string | null
+  destinationAssetId: string | null
   destinationChain: string
   destinationTokenSymbol: string
   destinationAmount: runtime.Decimal | null
   destinationTxHash: string | null
+  payoutAddress: string | null
   depositAddress: string | null
+  depositMemo: string | null
   expiresAt: Date | null
+  providerStatus: string | null
+  lastStatusCheckedAt: Date | null
+  providerCorrelationId: string | null
+  providerResponse: runtime.JsonValue | null
   confirmedAt: Date | null
   refundedAt: Date | null
   createdAt: Date
@@ -353,17 +412,26 @@ export type PaymentWhereInput = {
   providerReference?: Prisma.StringNullableFilter<"Payment"> | string | null
   idempotencyKey?: Prisma.StringNullableFilter<"Payment"> | string | null
   invoiceAmount?: Prisma.DecimalFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
+  sourceAssetId?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceChain?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceTokenAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceTokenSymbol?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceAmount?: Prisma.DecimalNullableFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.StringNullableFilter<"Payment"> | string | null
+  destinationAssetId?: Prisma.StringNullableFilter<"Payment"> | string | null
   destinationChain?: Prisma.StringFilter<"Payment"> | string
   destinationTokenSymbol?: Prisma.StringFilter<"Payment"> | string
   destinationAmount?: Prisma.DecimalNullableFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.StringNullableFilter<"Payment"> | string | null
+  payoutAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
   depositAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
+  depositMemo?: Prisma.StringNullableFilter<"Payment"> | string | null
   expiresAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
+  providerStatus?: Prisma.StringNullableFilter<"Payment"> | string | null
+  lastStatusCheckedAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
+  providerCorrelationId?: Prisma.StringNullableFilter<"Payment"> | string | null
+  providerResponse?: Prisma.JsonNullableFilter<"Payment">
   confirmedAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
   refundedAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Payment"> | Date | string
@@ -382,17 +450,26 @@ export type PaymentOrderByWithRelationInput = {
   providerReference?: Prisma.SortOrderInput | Prisma.SortOrder
   idempotencyKey?: Prisma.SortOrderInput | Prisma.SortOrder
   invoiceAmount?: Prisma.SortOrder
+  sourceRefundAddress?: Prisma.SortOrderInput | Prisma.SortOrder
+  sourceAssetId?: Prisma.SortOrderInput | Prisma.SortOrder
   sourceChain?: Prisma.SortOrderInput | Prisma.SortOrder
   sourceTokenAddress?: Prisma.SortOrderInput | Prisma.SortOrder
   sourceTokenSymbol?: Prisma.SortOrderInput | Prisma.SortOrder
   sourceAmount?: Prisma.SortOrderInput | Prisma.SortOrder
   sourceTxHash?: Prisma.SortOrderInput | Prisma.SortOrder
+  destinationAssetId?: Prisma.SortOrderInput | Prisma.SortOrder
   destinationChain?: Prisma.SortOrder
   destinationTokenSymbol?: Prisma.SortOrder
   destinationAmount?: Prisma.SortOrderInput | Prisma.SortOrder
   destinationTxHash?: Prisma.SortOrderInput | Prisma.SortOrder
+  payoutAddress?: Prisma.SortOrderInput | Prisma.SortOrder
   depositAddress?: Prisma.SortOrderInput | Prisma.SortOrder
+  depositMemo?: Prisma.SortOrderInput | Prisma.SortOrder
   expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  providerStatus?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastStatusCheckedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  providerCorrelationId?: Prisma.SortOrderInput | Prisma.SortOrder
+  providerResponse?: Prisma.SortOrderInput | Prisma.SortOrder
   confirmedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   refundedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -406,6 +483,7 @@ export type PaymentWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   providerReference?: string
   idempotencyKey?: string
+  providerCorrelationId?: string
   sourceChain_sourceTxHash?: Prisma.PaymentSourceChainSourceTxHashCompoundUniqueInput
   destinationChain_destinationTxHash?: Prisma.PaymentDestinationChainDestinationTxHashCompoundUniqueInput
   AND?: Prisma.PaymentWhereInput | Prisma.PaymentWhereInput[]
@@ -416,17 +494,25 @@ export type PaymentWhereUniqueInput = Prisma.AtLeast<{
   status?: Prisma.EnumPaymentStatusFilter<"Payment"> | $Enums.PaymentStatus
   provider?: Prisma.StringFilter<"Payment"> | string
   invoiceAmount?: Prisma.DecimalFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
+  sourceAssetId?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceChain?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceTokenAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceTokenSymbol?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceAmount?: Prisma.DecimalNullableFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.StringNullableFilter<"Payment"> | string | null
+  destinationAssetId?: Prisma.StringNullableFilter<"Payment"> | string | null
   destinationChain?: Prisma.StringFilter<"Payment"> | string
   destinationTokenSymbol?: Prisma.StringFilter<"Payment"> | string
   destinationAmount?: Prisma.DecimalNullableFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.StringNullableFilter<"Payment"> | string | null
+  payoutAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
   depositAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
+  depositMemo?: Prisma.StringNullableFilter<"Payment"> | string | null
   expiresAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
+  providerStatus?: Prisma.StringNullableFilter<"Payment"> | string | null
+  lastStatusCheckedAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
+  providerResponse?: Prisma.JsonNullableFilter<"Payment">
   confirmedAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
   refundedAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Payment"> | Date | string
@@ -434,7 +520,7 @@ export type PaymentWhereUniqueInput = Prisma.AtLeast<{
   invoice?: Prisma.XOR<Prisma.InvoiceScalarRelationFilter, Prisma.InvoiceWhereInput>
   installment?: Prisma.XOR<Prisma.InstallmentNullableScalarRelationFilter, Prisma.InstallmentWhereInput> | null
   events?: Prisma.PaymentEventListRelationFilter
-}, "id" | "providerReference" | "idempotencyKey" | "sourceChain_sourceTxHash" | "destinationChain_destinationTxHash">
+}, "id" | "providerReference" | "idempotencyKey" | "providerCorrelationId" | "sourceChain_sourceTxHash" | "destinationChain_destinationTxHash">
 
 export type PaymentOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -445,17 +531,26 @@ export type PaymentOrderByWithAggregationInput = {
   providerReference?: Prisma.SortOrderInput | Prisma.SortOrder
   idempotencyKey?: Prisma.SortOrderInput | Prisma.SortOrder
   invoiceAmount?: Prisma.SortOrder
+  sourceRefundAddress?: Prisma.SortOrderInput | Prisma.SortOrder
+  sourceAssetId?: Prisma.SortOrderInput | Prisma.SortOrder
   sourceChain?: Prisma.SortOrderInput | Prisma.SortOrder
   sourceTokenAddress?: Prisma.SortOrderInput | Prisma.SortOrder
   sourceTokenSymbol?: Prisma.SortOrderInput | Prisma.SortOrder
   sourceAmount?: Prisma.SortOrderInput | Prisma.SortOrder
   sourceTxHash?: Prisma.SortOrderInput | Prisma.SortOrder
+  destinationAssetId?: Prisma.SortOrderInput | Prisma.SortOrder
   destinationChain?: Prisma.SortOrder
   destinationTokenSymbol?: Prisma.SortOrder
   destinationAmount?: Prisma.SortOrderInput | Prisma.SortOrder
   destinationTxHash?: Prisma.SortOrderInput | Prisma.SortOrder
+  payoutAddress?: Prisma.SortOrderInput | Prisma.SortOrder
   depositAddress?: Prisma.SortOrderInput | Prisma.SortOrder
+  depositMemo?: Prisma.SortOrderInput | Prisma.SortOrder
   expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  providerStatus?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastStatusCheckedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  providerCorrelationId?: Prisma.SortOrderInput | Prisma.SortOrder
+  providerResponse?: Prisma.SortOrderInput | Prisma.SortOrder
   confirmedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   refundedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -479,17 +574,26 @@ export type PaymentScalarWhereWithAggregatesInput = {
   providerReference?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
   idempotencyKey?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
   invoiceAmount?: Prisma.DecimalWithAggregatesFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
+  sourceAssetId?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
   sourceChain?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
   sourceTokenAddress?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
   sourceTokenSymbol?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
   sourceAmount?: Prisma.DecimalNullableWithAggregatesFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
+  destinationAssetId?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
   destinationChain?: Prisma.StringWithAggregatesFilter<"Payment"> | string
   destinationTokenSymbol?: Prisma.StringWithAggregatesFilter<"Payment"> | string
   destinationAmount?: Prisma.DecimalNullableWithAggregatesFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
+  payoutAddress?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
   depositAddress?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
+  depositMemo?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
   expiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Payment"> | Date | string | null
+  providerStatus?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
+  lastStatusCheckedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Payment"> | Date | string | null
+  providerCorrelationId?: Prisma.StringNullableWithAggregatesFilter<"Payment"> | string | null
+  providerResponse?: Prisma.JsonNullableWithAggregatesFilter<"Payment">
   confirmedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Payment"> | Date | string | null
   refundedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Payment"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Payment"> | Date | string
@@ -503,17 +607,26 @@ export type PaymentCreateInput = {
   providerReference?: string | null
   idempotencyKey?: string | null
   invoiceAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: string | null
+  sourceAssetId?: string | null
   sourceChain?: string | null
   sourceTokenAddress?: string | null
   sourceTokenSymbol?: string | null
   sourceAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: string | null
+  destinationAssetId?: string | null
   destinationChain?: string
   destinationTokenSymbol?: string
   destinationAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: string | null
+  payoutAddress?: string | null
   depositAddress?: string | null
+  depositMemo?: string | null
   expiresAt?: Date | string | null
+  providerStatus?: string | null
+  lastStatusCheckedAt?: Date | string | null
+  providerCorrelationId?: string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Date | string | null
   refundedAt?: Date | string | null
   createdAt?: Date | string
@@ -532,17 +645,26 @@ export type PaymentUncheckedCreateInput = {
   providerReference?: string | null
   idempotencyKey?: string | null
   invoiceAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: string | null
+  sourceAssetId?: string | null
   sourceChain?: string | null
   sourceTokenAddress?: string | null
   sourceTokenSymbol?: string | null
   sourceAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: string | null
+  destinationAssetId?: string | null
   destinationChain?: string
   destinationTokenSymbol?: string
   destinationAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: string | null
+  payoutAddress?: string | null
   depositAddress?: string | null
+  depositMemo?: string | null
   expiresAt?: Date | string | null
+  providerStatus?: string | null
+  lastStatusCheckedAt?: Date | string | null
+  providerCorrelationId?: string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Date | string | null
   refundedAt?: Date | string | null
   createdAt?: Date | string
@@ -557,17 +679,26 @@ export type PaymentUpdateInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -586,17 +717,26 @@ export type PaymentUncheckedUpdateInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -613,17 +753,26 @@ export type PaymentCreateManyInput = {
   providerReference?: string | null
   idempotencyKey?: string | null
   invoiceAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: string | null
+  sourceAssetId?: string | null
   sourceChain?: string | null
   sourceTokenAddress?: string | null
   sourceTokenSymbol?: string | null
   sourceAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: string | null
+  destinationAssetId?: string | null
   destinationChain?: string
   destinationTokenSymbol?: string
   destinationAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: string | null
+  payoutAddress?: string | null
   depositAddress?: string | null
+  depositMemo?: string | null
   expiresAt?: Date | string | null
+  providerStatus?: string | null
+  lastStatusCheckedAt?: Date | string | null
+  providerCorrelationId?: string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Date | string | null
   refundedAt?: Date | string | null
   createdAt?: Date | string
@@ -637,17 +786,26 @@ export type PaymentUpdateManyMutationInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -663,17 +821,26 @@ export type PaymentUncheckedUpdateManyInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -709,17 +876,26 @@ export type PaymentCountOrderByAggregateInput = {
   providerReference?: Prisma.SortOrder
   idempotencyKey?: Prisma.SortOrder
   invoiceAmount?: Prisma.SortOrder
+  sourceRefundAddress?: Prisma.SortOrder
+  sourceAssetId?: Prisma.SortOrder
   sourceChain?: Prisma.SortOrder
   sourceTokenAddress?: Prisma.SortOrder
   sourceTokenSymbol?: Prisma.SortOrder
   sourceAmount?: Prisma.SortOrder
   sourceTxHash?: Prisma.SortOrder
+  destinationAssetId?: Prisma.SortOrder
   destinationChain?: Prisma.SortOrder
   destinationTokenSymbol?: Prisma.SortOrder
   destinationAmount?: Prisma.SortOrder
   destinationTxHash?: Prisma.SortOrder
+  payoutAddress?: Prisma.SortOrder
   depositAddress?: Prisma.SortOrder
+  depositMemo?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
+  providerStatus?: Prisma.SortOrder
+  lastStatusCheckedAt?: Prisma.SortOrder
+  providerCorrelationId?: Prisma.SortOrder
+  providerResponse?: Prisma.SortOrder
   confirmedAt?: Prisma.SortOrder
   refundedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -741,17 +917,25 @@ export type PaymentMaxOrderByAggregateInput = {
   providerReference?: Prisma.SortOrder
   idempotencyKey?: Prisma.SortOrder
   invoiceAmount?: Prisma.SortOrder
+  sourceRefundAddress?: Prisma.SortOrder
+  sourceAssetId?: Prisma.SortOrder
   sourceChain?: Prisma.SortOrder
   sourceTokenAddress?: Prisma.SortOrder
   sourceTokenSymbol?: Prisma.SortOrder
   sourceAmount?: Prisma.SortOrder
   sourceTxHash?: Prisma.SortOrder
+  destinationAssetId?: Prisma.SortOrder
   destinationChain?: Prisma.SortOrder
   destinationTokenSymbol?: Prisma.SortOrder
   destinationAmount?: Prisma.SortOrder
   destinationTxHash?: Prisma.SortOrder
+  payoutAddress?: Prisma.SortOrder
   depositAddress?: Prisma.SortOrder
+  depositMemo?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
+  providerStatus?: Prisma.SortOrder
+  lastStatusCheckedAt?: Prisma.SortOrder
+  providerCorrelationId?: Prisma.SortOrder
   confirmedAt?: Prisma.SortOrder
   refundedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -767,17 +951,25 @@ export type PaymentMinOrderByAggregateInput = {
   providerReference?: Prisma.SortOrder
   idempotencyKey?: Prisma.SortOrder
   invoiceAmount?: Prisma.SortOrder
+  sourceRefundAddress?: Prisma.SortOrder
+  sourceAssetId?: Prisma.SortOrder
   sourceChain?: Prisma.SortOrder
   sourceTokenAddress?: Prisma.SortOrder
   sourceTokenSymbol?: Prisma.SortOrder
   sourceAmount?: Prisma.SortOrder
   sourceTxHash?: Prisma.SortOrder
+  destinationAssetId?: Prisma.SortOrder
   destinationChain?: Prisma.SortOrder
   destinationTokenSymbol?: Prisma.SortOrder
   destinationAmount?: Prisma.SortOrder
   destinationTxHash?: Prisma.SortOrder
+  payoutAddress?: Prisma.SortOrder
   depositAddress?: Prisma.SortOrder
+  depositMemo?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
+  providerStatus?: Prisma.SortOrder
+  lastStatusCheckedAt?: Prisma.SortOrder
+  providerCorrelationId?: Prisma.SortOrder
   confirmedAt?: Prisma.SortOrder
   refundedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -912,17 +1104,26 @@ export type PaymentCreateWithoutInvoiceInput = {
   providerReference?: string | null
   idempotencyKey?: string | null
   invoiceAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: string | null
+  sourceAssetId?: string | null
   sourceChain?: string | null
   sourceTokenAddress?: string | null
   sourceTokenSymbol?: string | null
   sourceAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: string | null
+  destinationAssetId?: string | null
   destinationChain?: string
   destinationTokenSymbol?: string
   destinationAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: string | null
+  payoutAddress?: string | null
   depositAddress?: string | null
+  depositMemo?: string | null
   expiresAt?: Date | string | null
+  providerStatus?: string | null
+  lastStatusCheckedAt?: Date | string | null
+  providerCorrelationId?: string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Date | string | null
   refundedAt?: Date | string | null
   createdAt?: Date | string
@@ -939,17 +1140,26 @@ export type PaymentUncheckedCreateWithoutInvoiceInput = {
   providerReference?: string | null
   idempotencyKey?: string | null
   invoiceAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: string | null
+  sourceAssetId?: string | null
   sourceChain?: string | null
   sourceTokenAddress?: string | null
   sourceTokenSymbol?: string | null
   sourceAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: string | null
+  destinationAssetId?: string | null
   destinationChain?: string
   destinationTokenSymbol?: string
   destinationAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: string | null
+  payoutAddress?: string | null
   depositAddress?: string | null
+  depositMemo?: string | null
   expiresAt?: Date | string | null
+  providerStatus?: string | null
+  lastStatusCheckedAt?: Date | string | null
+  providerCorrelationId?: string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Date | string | null
   refundedAt?: Date | string | null
   createdAt?: Date | string
@@ -995,17 +1205,26 @@ export type PaymentScalarWhereInput = {
   providerReference?: Prisma.StringNullableFilter<"Payment"> | string | null
   idempotencyKey?: Prisma.StringNullableFilter<"Payment"> | string | null
   invoiceAmount?: Prisma.DecimalFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
+  sourceAssetId?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceChain?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceTokenAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceTokenSymbol?: Prisma.StringNullableFilter<"Payment"> | string | null
   sourceAmount?: Prisma.DecimalNullableFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.StringNullableFilter<"Payment"> | string | null
+  destinationAssetId?: Prisma.StringNullableFilter<"Payment"> | string | null
   destinationChain?: Prisma.StringFilter<"Payment"> | string
   destinationTokenSymbol?: Prisma.StringFilter<"Payment"> | string
   destinationAmount?: Prisma.DecimalNullableFilter<"Payment"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.StringNullableFilter<"Payment"> | string | null
+  payoutAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
   depositAddress?: Prisma.StringNullableFilter<"Payment"> | string | null
+  depositMemo?: Prisma.StringNullableFilter<"Payment"> | string | null
   expiresAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
+  providerStatus?: Prisma.StringNullableFilter<"Payment"> | string | null
+  lastStatusCheckedAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
+  providerCorrelationId?: Prisma.StringNullableFilter<"Payment"> | string | null
+  providerResponse?: Prisma.JsonNullableFilter<"Payment">
   confirmedAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
   refundedAt?: Prisma.DateTimeNullableFilter<"Payment"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Payment"> | Date | string
@@ -1019,17 +1238,26 @@ export type PaymentCreateWithoutInstallmentInput = {
   providerReference?: string | null
   idempotencyKey?: string | null
   invoiceAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: string | null
+  sourceAssetId?: string | null
   sourceChain?: string | null
   sourceTokenAddress?: string | null
   sourceTokenSymbol?: string | null
   sourceAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: string | null
+  destinationAssetId?: string | null
   destinationChain?: string
   destinationTokenSymbol?: string
   destinationAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: string | null
+  payoutAddress?: string | null
   depositAddress?: string | null
+  depositMemo?: string | null
   expiresAt?: Date | string | null
+  providerStatus?: string | null
+  lastStatusCheckedAt?: Date | string | null
+  providerCorrelationId?: string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Date | string | null
   refundedAt?: Date | string | null
   createdAt?: Date | string
@@ -1045,17 +1273,26 @@ export type PaymentUncheckedCreateWithoutInstallmentInput = {
   providerReference?: string | null
   idempotencyKey?: string | null
   invoiceAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: string | null
+  sourceAssetId?: string | null
   sourceChain?: string | null
   sourceTokenAddress?: string | null
   sourceTokenSymbol?: string | null
   sourceAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: string | null
+  destinationAssetId?: string | null
   destinationChain?: string
   destinationTokenSymbol?: string
   destinationAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: string | null
+  payoutAddress?: string | null
   depositAddress?: string | null
+  depositMemo?: string | null
   expiresAt?: Date | string | null
+  providerStatus?: string | null
+  lastStatusCheckedAt?: Date | string | null
+  providerCorrelationId?: string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Date | string | null
   refundedAt?: Date | string | null
   createdAt?: Date | string
@@ -1096,17 +1333,26 @@ export type PaymentCreateWithoutEventsInput = {
   providerReference?: string | null
   idempotencyKey?: string | null
   invoiceAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: string | null
+  sourceAssetId?: string | null
   sourceChain?: string | null
   sourceTokenAddress?: string | null
   sourceTokenSymbol?: string | null
   sourceAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: string | null
+  destinationAssetId?: string | null
   destinationChain?: string
   destinationTokenSymbol?: string
   destinationAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: string | null
+  payoutAddress?: string | null
   depositAddress?: string | null
+  depositMemo?: string | null
   expiresAt?: Date | string | null
+  providerStatus?: string | null
+  lastStatusCheckedAt?: Date | string | null
+  providerCorrelationId?: string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Date | string | null
   refundedAt?: Date | string | null
   createdAt?: Date | string
@@ -1124,17 +1370,26 @@ export type PaymentUncheckedCreateWithoutEventsInput = {
   providerReference?: string | null
   idempotencyKey?: string | null
   invoiceAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: string | null
+  sourceAssetId?: string | null
   sourceChain?: string | null
   sourceTokenAddress?: string | null
   sourceTokenSymbol?: string | null
   sourceAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: string | null
+  destinationAssetId?: string | null
   destinationChain?: string
   destinationTokenSymbol?: string
   destinationAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: string | null
+  payoutAddress?: string | null
   depositAddress?: string | null
+  depositMemo?: string | null
   expiresAt?: Date | string | null
+  providerStatus?: string | null
+  lastStatusCheckedAt?: Date | string | null
+  providerCorrelationId?: string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Date | string | null
   refundedAt?: Date | string | null
   createdAt?: Date | string
@@ -1164,17 +1419,26 @@ export type PaymentUpdateWithoutEventsInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1192,17 +1456,26 @@ export type PaymentUncheckedUpdateWithoutEventsInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1217,17 +1490,26 @@ export type PaymentCreateManyInvoiceInput = {
   providerReference?: string | null
   idempotencyKey?: string | null
   invoiceAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: string | null
+  sourceAssetId?: string | null
   sourceChain?: string | null
   sourceTokenAddress?: string | null
   sourceTokenSymbol?: string | null
   sourceAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: string | null
+  destinationAssetId?: string | null
   destinationChain?: string
   destinationTokenSymbol?: string
   destinationAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: string | null
+  payoutAddress?: string | null
   depositAddress?: string | null
+  depositMemo?: string | null
   expiresAt?: Date | string | null
+  providerStatus?: string | null
+  lastStatusCheckedAt?: Date | string | null
+  providerCorrelationId?: string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Date | string | null
   refundedAt?: Date | string | null
   createdAt?: Date | string
@@ -1241,17 +1523,26 @@ export type PaymentUpdateWithoutInvoiceInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1268,17 +1559,26 @@ export type PaymentUncheckedUpdateWithoutInvoiceInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1294,17 +1594,26 @@ export type PaymentUncheckedUpdateManyWithoutInvoiceInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1318,17 +1627,26 @@ export type PaymentCreateManyInstallmentInput = {
   providerReference?: string | null
   idempotencyKey?: string | null
   invoiceAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: string | null
+  sourceAssetId?: string | null
   sourceChain?: string | null
   sourceTokenAddress?: string | null
   sourceTokenSymbol?: string | null
   sourceAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: string | null
+  destinationAssetId?: string | null
   destinationChain?: string
   destinationTokenSymbol?: string
   destinationAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: string | null
+  payoutAddress?: string | null
   depositAddress?: string | null
+  depositMemo?: string | null
   expiresAt?: Date | string | null
+  providerStatus?: string | null
+  lastStatusCheckedAt?: Date | string | null
+  providerCorrelationId?: string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Date | string | null
   refundedAt?: Date | string | null
   createdAt?: Date | string
@@ -1342,17 +1660,26 @@ export type PaymentUpdateWithoutInstallmentInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1368,17 +1695,26 @@ export type PaymentUncheckedUpdateWithoutInstallmentInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1393,17 +1729,26 @@ export type PaymentUncheckedUpdateManyWithoutInstallmentInput = {
   providerReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idempotencyKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  sourceRefundAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceChain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceTokenSymbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sourceAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   sourceTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  destinationAssetId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   destinationChain?: Prisma.StringFieldUpdateOperationsInput | string
   destinationTokenSymbol?: Prisma.StringFieldUpdateOperationsInput | string
   destinationAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   destinationTxHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payoutAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   depositAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  depositMemo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastStatusCheckedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  providerCorrelationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  providerResponse?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   confirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1450,17 +1795,26 @@ export type PaymentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   providerReference?: boolean
   idempotencyKey?: boolean
   invoiceAmount?: boolean
+  sourceRefundAddress?: boolean
+  sourceAssetId?: boolean
   sourceChain?: boolean
   sourceTokenAddress?: boolean
   sourceTokenSymbol?: boolean
   sourceAmount?: boolean
   sourceTxHash?: boolean
+  destinationAssetId?: boolean
   destinationChain?: boolean
   destinationTokenSymbol?: boolean
   destinationAmount?: boolean
   destinationTxHash?: boolean
+  payoutAddress?: boolean
   depositAddress?: boolean
+  depositMemo?: boolean
   expiresAt?: boolean
+  providerStatus?: boolean
+  lastStatusCheckedAt?: boolean
+  providerCorrelationId?: boolean
+  providerResponse?: boolean
   confirmedAt?: boolean
   refundedAt?: boolean
   createdAt?: boolean
@@ -1480,17 +1834,26 @@ export type PaymentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   providerReference?: boolean
   idempotencyKey?: boolean
   invoiceAmount?: boolean
+  sourceRefundAddress?: boolean
+  sourceAssetId?: boolean
   sourceChain?: boolean
   sourceTokenAddress?: boolean
   sourceTokenSymbol?: boolean
   sourceAmount?: boolean
   sourceTxHash?: boolean
+  destinationAssetId?: boolean
   destinationChain?: boolean
   destinationTokenSymbol?: boolean
   destinationAmount?: boolean
   destinationTxHash?: boolean
+  payoutAddress?: boolean
   depositAddress?: boolean
+  depositMemo?: boolean
   expiresAt?: boolean
+  providerStatus?: boolean
+  lastStatusCheckedAt?: boolean
+  providerCorrelationId?: boolean
+  providerResponse?: boolean
   confirmedAt?: boolean
   refundedAt?: boolean
   createdAt?: boolean
@@ -1508,17 +1871,26 @@ export type PaymentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   providerReference?: boolean
   idempotencyKey?: boolean
   invoiceAmount?: boolean
+  sourceRefundAddress?: boolean
+  sourceAssetId?: boolean
   sourceChain?: boolean
   sourceTokenAddress?: boolean
   sourceTokenSymbol?: boolean
   sourceAmount?: boolean
   sourceTxHash?: boolean
+  destinationAssetId?: boolean
   destinationChain?: boolean
   destinationTokenSymbol?: boolean
   destinationAmount?: boolean
   destinationTxHash?: boolean
+  payoutAddress?: boolean
   depositAddress?: boolean
+  depositMemo?: boolean
   expiresAt?: boolean
+  providerStatus?: boolean
+  lastStatusCheckedAt?: boolean
+  providerCorrelationId?: boolean
+  providerResponse?: boolean
   confirmedAt?: boolean
   refundedAt?: boolean
   createdAt?: boolean
@@ -1536,24 +1908,33 @@ export type PaymentSelectScalar = {
   providerReference?: boolean
   idempotencyKey?: boolean
   invoiceAmount?: boolean
+  sourceRefundAddress?: boolean
+  sourceAssetId?: boolean
   sourceChain?: boolean
   sourceTokenAddress?: boolean
   sourceTokenSymbol?: boolean
   sourceAmount?: boolean
   sourceTxHash?: boolean
+  destinationAssetId?: boolean
   destinationChain?: boolean
   destinationTokenSymbol?: boolean
   destinationAmount?: boolean
   destinationTxHash?: boolean
+  payoutAddress?: boolean
   depositAddress?: boolean
+  depositMemo?: boolean
   expiresAt?: boolean
+  providerStatus?: boolean
+  lastStatusCheckedAt?: boolean
+  providerCorrelationId?: boolean
+  providerResponse?: boolean
   confirmedAt?: boolean
   refundedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type PaymentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "invoiceId" | "installmentId" | "status" | "provider" | "providerReference" | "idempotencyKey" | "invoiceAmount" | "sourceChain" | "sourceTokenAddress" | "sourceTokenSymbol" | "sourceAmount" | "sourceTxHash" | "destinationChain" | "destinationTokenSymbol" | "destinationAmount" | "destinationTxHash" | "depositAddress" | "expiresAt" | "confirmedAt" | "refundedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["payment"]>
+export type PaymentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "invoiceId" | "installmentId" | "status" | "provider" | "providerReference" | "idempotencyKey" | "invoiceAmount" | "sourceRefundAddress" | "sourceAssetId" | "sourceChain" | "sourceTokenAddress" | "sourceTokenSymbol" | "sourceAmount" | "sourceTxHash" | "destinationAssetId" | "destinationChain" | "destinationTokenSymbol" | "destinationAmount" | "destinationTxHash" | "payoutAddress" | "depositAddress" | "depositMemo" | "expiresAt" | "providerStatus" | "lastStatusCheckedAt" | "providerCorrelationId" | "providerResponse" | "confirmedAt" | "refundedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["payment"]>
 export type PaymentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   invoice?: boolean | Prisma.InvoiceDefaultArgs<ExtArgs>
   installment?: boolean | Prisma.Payment$installmentArgs<ExtArgs>
@@ -1585,17 +1966,26 @@ export type $PaymentPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     providerReference: string | null
     idempotencyKey: string | null
     invoiceAmount: runtime.Decimal
+    sourceRefundAddress: string | null
+    sourceAssetId: string | null
     sourceChain: string | null
     sourceTokenAddress: string | null
     sourceTokenSymbol: string | null
     sourceAmount: runtime.Decimal | null
     sourceTxHash: string | null
+    destinationAssetId: string | null
     destinationChain: string
     destinationTokenSymbol: string
     destinationAmount: runtime.Decimal | null
     destinationTxHash: string | null
+    payoutAddress: string | null
     depositAddress: string | null
+    depositMemo: string | null
     expiresAt: Date | null
+    providerStatus: string | null
+    lastStatusCheckedAt: Date | null
+    providerCorrelationId: string | null
+    providerResponse: runtime.JsonValue | null
     confirmedAt: Date | null
     refundedAt: Date | null
     createdAt: Date
@@ -2034,17 +2424,26 @@ export interface PaymentFieldRefs {
   readonly providerReference: Prisma.FieldRef<"Payment", 'String'>
   readonly idempotencyKey: Prisma.FieldRef<"Payment", 'String'>
   readonly invoiceAmount: Prisma.FieldRef<"Payment", 'Decimal'>
+  readonly sourceRefundAddress: Prisma.FieldRef<"Payment", 'String'>
+  readonly sourceAssetId: Prisma.FieldRef<"Payment", 'String'>
   readonly sourceChain: Prisma.FieldRef<"Payment", 'String'>
   readonly sourceTokenAddress: Prisma.FieldRef<"Payment", 'String'>
   readonly sourceTokenSymbol: Prisma.FieldRef<"Payment", 'String'>
   readonly sourceAmount: Prisma.FieldRef<"Payment", 'Decimal'>
   readonly sourceTxHash: Prisma.FieldRef<"Payment", 'String'>
+  readonly destinationAssetId: Prisma.FieldRef<"Payment", 'String'>
   readonly destinationChain: Prisma.FieldRef<"Payment", 'String'>
   readonly destinationTokenSymbol: Prisma.FieldRef<"Payment", 'String'>
   readonly destinationAmount: Prisma.FieldRef<"Payment", 'Decimal'>
   readonly destinationTxHash: Prisma.FieldRef<"Payment", 'String'>
+  readonly payoutAddress: Prisma.FieldRef<"Payment", 'String'>
   readonly depositAddress: Prisma.FieldRef<"Payment", 'String'>
+  readonly depositMemo: Prisma.FieldRef<"Payment", 'String'>
   readonly expiresAt: Prisma.FieldRef<"Payment", 'DateTime'>
+  readonly providerStatus: Prisma.FieldRef<"Payment", 'String'>
+  readonly lastStatusCheckedAt: Prisma.FieldRef<"Payment", 'DateTime'>
+  readonly providerCorrelationId: Prisma.FieldRef<"Payment", 'String'>
+  readonly providerResponse: Prisma.FieldRef<"Payment", 'Json'>
   readonly confirmedAt: Prisma.FieldRef<"Payment", 'DateTime'>
   readonly refundedAt: Prisma.FieldRef<"Payment", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"Payment", 'DateTime'>

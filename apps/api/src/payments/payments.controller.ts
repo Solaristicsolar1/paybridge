@@ -1,7 +1,9 @@
+
 import {
     Body,
     Controller,
     Get,
+    Headers,
     Param,
     ParseUUIDPipe,
     Post,
@@ -27,6 +29,15 @@ import {
     CreateNearQuoteDto,
 } from './near-intents/dto/create-quote.dto';
 
+import {
+    CreateInvoiceCheckoutDto,
+} from './dto/create-invoice-checkout.dto';
+
+
+// ==============================================
+// BUSINESS PAYMENT CONTROLLER
+// ==============================================
+
 @Controller('businesses/:businessId/payments')
 @UseGuards(JwtAuthGuard, BusinessAccessGuard)
 export class PaymentsController {
@@ -35,9 +46,7 @@ export class PaymentsController {
         private readonly nearIntentsService: NearIntentsService,
     ) { }
 
-    // ==========================================
     // GET NEAR INTENTS SUPPORTED TOKENS
-    // ==========================================
 
     @Get('near/tokens')
     async getNearSupportedTokens(
@@ -47,9 +56,7 @@ export class PaymentsController {
         return this.nearIntentsService.getSupportedTokens();
     }
 
-    // ==========================================
     // GENERATE NEAR INTENTS DRY-RUN QUOTE
-    // ==========================================
 
     @Post('near/quote')
     async createNearQuote(
@@ -62,9 +69,7 @@ export class PaymentsController {
         return this.nearIntentsService.createQuote(dto);
     }
 
-    // ==========================================
     // LIST BUSINESS PAYMENTS
-    // ==========================================
 
     @Get()
     async getPayments(
@@ -80,9 +85,7 @@ export class PaymentsController {
         );
     }
 
-    // ==========================================
     // GET SINGLE BUSINESS PAYMENT
-    // ==========================================
 
     @Get(':paymentId')
     async getPayment(
@@ -94,6 +97,64 @@ export class PaymentsController {
     ) {
         return this.paymentsService.getPayment(
             businessId,
+            paymentId,
+        );
+    }
+}
+
+
+// ==============================================
+// PUBLIC INVOICE PAYMENT CONTROLLER
+// ==============================================
+
+@Controller('public')
+export class PublicInvoicePaymentsController {
+    constructor(
+        private readonly paymentsService: PaymentsService,
+    ) { }
+
+    // GET SUPPORTED CUSTOMER PAYMENT ASSETS
+
+    @Get('payment-assets')
+    async getPaymentAssets() {
+        return this.paymentsService.getCheckoutAssets();
+    }
+
+    // CREATE PUBLIC INVOICE CHECKOUT
+
+    @Post('invoices/:token/checkout')
+    async createInvoiceCheckout(
+        @Param('token', ParseUUIDPipe)
+        token: string,
+
+        @Body()
+        dto: CreateInvoiceCheckoutDto,
+
+        @Headers('idempotency-key')
+        idempotencyKey?: string,
+    ) {
+        return this.paymentsService.createInvoiceCheckout(
+            token,
+            dto,
+            idempotencyKey ?? '',
+        );
+    }
+
+
+    // ==========================================
+    // GET PUBLIC INVOICE PAYMENT STATUS
+    // ==========================================
+
+    @Get('invoices/:token/payments/:paymentId/status')
+    async getPublicPaymentStatus(
+        @Param('token', ParseUUIDPipe)
+        token: string,
+
+        @Param('paymentId', ParseUUIDPipe)
+        paymentId: string,
+    ) {
+        return this.paymentsService.getPublicPaymentStatus(
+            token,
             paymentId,
         );
     }

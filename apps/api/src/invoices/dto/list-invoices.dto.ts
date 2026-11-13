@@ -26,6 +26,7 @@ export class ListInvoicesDto {
         'SENT',
         'PARTIALLY_PAID',
         'PAID',
+        'OVERPAID',
         'OVERDUE',
         'CANCELLED',
     ])

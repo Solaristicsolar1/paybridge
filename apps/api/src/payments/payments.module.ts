@@ -5,9 +5,16 @@ import { DatabaseModule } from '../database/database.module';
 import { AuthModule } from '../auth/auth.module';
 import { PermissionsModule } from '../permissions/permissions.module';
 
-import { PaymentsController } from './payments.controller';
+import {
+    PaymentsController,
+    PublicInvoicePaymentsController,
+} from './payments.controller';
+
 import { PaymentsService } from './payments.service';
-import { NearIntentsService } from './near-intents/near-intents.service';
+
+import {
+    NearIntentsService,
+} from './near-intents/near-intents.service';
 
 @Module({
     imports: [
@@ -18,6 +25,7 @@ import { NearIntentsService } from './near-intents/near-intents.service';
 
     controllers: [
         PaymentsController,
+        PublicInvoicePaymentsController,
     ],
 
     providers: [
